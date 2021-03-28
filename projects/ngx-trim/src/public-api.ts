@@ -3,3 +3,5 @@
  */
 
 export * from './lib/ngx-trim.module';
+
+export { trim } from './lib/ngx-trim.pipe';
