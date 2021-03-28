@@ -3,5 +3,46 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "ngx-trim": {
+      "projectType": "library",
+      "root": "projects/ngx-trim",
+      "sourceRoot": "projects/ngx-trim/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ngx-trim/tsconfig.lib.json",
+            "project": "projects/ngx-trim/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-trim/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-trim/src/test.ts",
+            "tsConfig": "projects/ngx-trim/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-trim/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-trim/tsconfig.lib.json",
+              "projects/ngx-trim/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ngx-trim"
 }
